@@ -7,37 +7,42 @@ class Header extends Component {
     render() {
         return (
           <div className='app-head'>
-            <h1>Herer</h1>
-            <h2>What's good around herer?</h2>
-            <ul>
-              <li>
+            <div className='navbar'>
+              <div>
                 <Link
                   to="/"
                   activeOnlyWhenExact
                   activeClassName="active"
+                  className='menu-item'
                 >
                 Home
                 </Link>
-              </li>
-              <li>
+              </div>
+              <div>
                 <Link
                   to="/neighborhoods"
                   activeOnlyWhenExact
                   activeClassName="active"
+                  className='menu-item'
                 >
                 Neighborhoods
                 </Link>
-              </li>
-              <li>
+              </div>
+              <div>
                 <Link
                   to="/contact"
                   activeOnlyWhenExact
                   activeClassName="active"
+                  className='menu-item'
                 >
                 Contact
                 </Link>
-              </li>
-            </ul>
+              </div>
+            </div>
+            <div className='head-wrap'>
+              <h1>Herer</h1>
+              <h2>what's good around here?</h2>
+            </div>
           </div>
         );
     }

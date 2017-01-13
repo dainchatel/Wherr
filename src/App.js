@@ -5,6 +5,8 @@ import axios from 'axios';
 import Header from './components/Header';
 import Home from './components/Home';
 import NotFound from './components/NotFound';
+import Neighborhoods from './components/Neighborhoods';
+import Contact from './components/Contact';
 
 class App extends Component {
   render() {
@@ -14,7 +16,8 @@ class App extends Component {
           <Header />
           <div className="main">
             <Match exactly pattern="/" component={Home} />
-
+            <Match exactly pattern="/neighborhoods" component={Neighborhoods} />
+            <Match exactly pattern="/contact" component={Contact} />
             <Miss component={NotFound} />
           </div>
         </div>
