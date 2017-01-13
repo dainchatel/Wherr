@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Match, Miss } from 'react-router';
-import Router from 'react-router/BrowserRouter'
 
 class Home extends Component {
+  constructor() {
+    super();
+    this.createDestination = this.createDestination.bind(this);
+  }
 
   createDestination(e) {
     e.preventDefault();
     const newDest = this.content.value;
     this.props.addDestination(newDest);
-
+    this.context.router.transitionTo('/contact');
   }
 
   render() {
     return (
-
 
       <form onSubmit={(e) => {this.createDestination(e)}}>
         <input
@@ -28,8 +29,16 @@ class Home extends Component {
       </form>
 
 
+
     );
   }
+
+
 }
+
+Home.contextTypes = {
+  router: React.PropTypes.object
+}
+
 
 export default Home;

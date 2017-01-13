@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 import { BrowserRouter, Match, Miss } from 'react-router';
-import Router from 'react-router/BrowserRouter';
 import axios from 'axios';
 import Header from './components/Header';
 import Home from './components/Home';
@@ -10,10 +9,16 @@ import Neighborhoods from './components/Neighborhoods';
 import Contact from './components/Contact';
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      currentDest: '',
+    }
+    this.addDestination = this.addDestination.bind(this);
+  }
 
   addDestination(dest) {
-    console.log(dest);
-    Router.redirect('/neighborhoods');
+    this.setState({currentDest: dest});
   }
 
   render() {
@@ -26,6 +31,7 @@ class App extends Component {
             />
             <Match exactly pattern="/neighborhoods" component={Neighborhoods} />
             <Match exactly pattern="/contact" component={Contact} />
+            <Match exactly pattern="/editentry" component={EditEntry} />
             <Miss component={NotFound} />
           </div>
         </div>
