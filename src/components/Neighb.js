@@ -7,10 +7,11 @@ class Neighb extends Component {
       this.state = {
         displaying: false,
         selectedNeighb: {},
+        key: ''
       }
     }
 
-    renderDests() {
+    componentDidMount() {
       const { neighborhoods } = this.props;
       let neighbKey;
       Object.keys(neighborhoods).map(key => {
@@ -18,6 +19,21 @@ class Neighb extends Component {
           neighbKey = key;
       }});
       this.setState({selectedNeighb: this.props.neighborhoods[neighbKey]});
+      this.setState({key: neighbKey});
+    }
+
+    retrieveDests() {
+      let thisNeighb = this.state.selectedNeighb;
+      return (
+      Object.keys(thisNeighb).map(key => {
+        if (thisNeighb[key] !== this.state.selectedNeighb.name) {
+          return( <div key={key} className='neighb-dests'>{thisNeighb[key].name}</div>);
+        }
+      })
+    );
+    }
+
+    renderDests() {
       if (this.state.displaying === true) {
         this.setState({displaying: false})
       }
@@ -29,12 +45,12 @@ class Neighb extends Component {
     render() {
         let displayed;
         if (this.state.displaying) {
-          displayed = this.state.selectedNeighb.name;
+          displayed = this.retrieveDests();
         }
         return (
           <div>
             <div onClick={this.renderDests}>{this.props.details}</div>
-            <div>{displayed}</div>
+            {displayed}
           </div>
         );
     }

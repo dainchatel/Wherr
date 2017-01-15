@@ -52,8 +52,7 @@ class App extends Component {
       cross2: dest.cross2
     })
       .then((res) => {
-
-        console.log(res);
+        this.getTheNeighbs();
       });
   }
 

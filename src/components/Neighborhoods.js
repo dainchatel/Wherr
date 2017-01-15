@@ -12,21 +12,6 @@ class Neighborhoods extends Component {
       this.neighb.value = '';
     }
 
-    // renderDests(neighb) {
-    //   const { neighborhoods } = this.props;
-    //   let neighbKey;
-    //   Object.keys(neighborhoods).map(key => {
-    //   if (neighborhoods[key].name === neighb) {
-    //     neighbKey = key;
-    //   }});
-    //   this.setState({selectedNeighb: this.props.neighborhoods[neighbKey]});
-    //   if (this.state.displaying === true) {
-    //     this.setState({displaying: false})
-    //   }
-    //   else {
-    //   this.setState({displaying: true})
-    // }
-    // }
 
     renderNeighborhoods() {
       const { neighborhoods } = this.props;
