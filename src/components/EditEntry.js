@@ -14,6 +14,15 @@ class EditEntry extends Component {
       this.context.router.transitionTo('/neighborhoods');
     }
 
+    renderNeighborhoodList() {
+      const { neighborhoods } = this.props;
+      if (neighborhoods) {
+        const neighbList = Object.keys(neighborhoods).map(key => { return neighborhoods[key].name})
+        const alphaList = neighbList.sort();
+        return (alphaList.map(key => <option key={key}>{key}</option>));
+      }
+  }
+
     render() {
         return (
             <div className='edit-entry-all'>
@@ -36,9 +45,7 @@ class EditEntry extends Component {
                     this.neighborhood = input;
                     }
                   }>
-                    <option>Chelsea</option>
-                    <option>East Village</option>
-                    <option>Tribeca</option>
+                  {this.renderNeighborhoodList()}
                   </select>
                 </div>
                 <div>

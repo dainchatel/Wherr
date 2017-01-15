@@ -29,7 +29,7 @@ class Home extends Component {
                 }
             }
           ></input>
-          <button type='submit'>H</button>
+          <button type='submit'>+</button>
         </form>
       </div>
 
