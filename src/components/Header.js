@@ -39,10 +39,7 @@ class Header extends Component {
                 </Link>
               </div>
             </div>
-            <div className='head-wrap'>
-              <h1>Herer</h1>
-              <h2>what's good around here?</h2>
-            </div>
+
           </div>
         );
     }

@@ -26,17 +26,18 @@ h1 {
   font-family: 'Montserrat';
   font-weight: 700;
   color: rgba(13, 121, 255, 1);
-  font-size: 6em;
+  font-size: 4em;
   letter-spacing: -.15em;
   padding-right: .15em; /* accounts for push off-center caused by letter spacing */
+  margin: 0;
 }
 
 h2 {
   font-family: 'Montserrat';
   font-weight: 400;
   color: rgba(60, 60, 60, .2);
-  font-size: 2em;
-  margin-top: -10vh;
+  font-size: 1em;
+  margin: 0;
 }
 
 .main {
@@ -45,10 +46,37 @@ h2 {
   color: rgba(60, 60, 60, .4);
   font-size: 2em;
   display: flex;
+  flex-direction: column;
   justify-content: center;
 }
 
+.home-form {
+  display: flex;
+  justify-content: center;
+  padding: 3vh 1vw;
+  outline: none;
+}
 
+.edit-entry-all {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.edit-head {
+  color: rgba(13, 121, 255, 1);
+}
+
+.edit-entry-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-contact {
+  display: flex;
+  justify-content: flex-end;
+}
 
 
 

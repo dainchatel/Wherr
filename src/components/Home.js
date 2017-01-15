@@ -10,24 +10,28 @@ class Home extends Component {
     e.preventDefault();
     const newDest = this.content.value;
     this.props.addDestination(newDest);
-    this.context.router.transitionTo('/contact');
+    this.context.router.transitionTo('/editentry');
   }
 
   render() {
     return (
-
-      <form onSubmit={(e) => {this.createDestination(e)}}>
-        <input
-          placeholder='Add a destination...'
-          onKeyPress={this.enterDestination}
-          ref={(input) => {
-              this.content = input;
-              }
-          }
-        ></input>
-        <button type='submit'>H</button>
-      </form>
-
+      <div>
+        <div className='head-wrap'>
+          <h1>Here</h1>
+          <h2>what's good around here?</h2>
+        </div>
+        <form className='home-form' onSubmit={(e) => {this.createDestination(e)}}>
+          <input
+            placeholder='Add a destination...'
+            onKeyPress={this.enterDestination}
+            ref={(input) => {
+                this.content = input;
+                }
+            }
+          ></input>
+          <button type='submit'>H</button>
+        </form>
+      </div>
 
 
     );
