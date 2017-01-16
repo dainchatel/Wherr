@@ -4,10 +4,15 @@ class Neighb extends Component {
     constructor() {
       super();
       this.renderDests = this.renderDests.bind(this);
+      this.editNeighb = this.editNeighb.bind(this);
+      this.renderNeighbedit = this.renderNeighbEdit.bind(this);
+      this.chooseNeighbForDelete = this.chooseNeighbForDelete.bind(this);
+      this.chooseNeighbForEdit = this.chooseNeighbForEdit.bind(this);
       this.state = {
         displaying: false,
         selectedNeighb: {},
-        key: ''
+        key: '',
+        editing: false,
       }
     }
 
@@ -34,6 +39,7 @@ class Neighb extends Component {
     }
 
     renderDests() {
+
       if (this.state.displaying === true) {
         this.setState({displaying: false})
       }
@@ -42,15 +48,61 @@ class Neighb extends Component {
     }
   }
 
+  editNeighb() {
+    this.setState({editing: true});
+  }
+
+  renderNeighborhood() {
+    return (
+    <div onClick={this.renderDests} onDoubleClick={this.editNeighb} >{this.props.details}</div>
+    );
+  }
+
+  chooseNeighbForDelete() {
+    this.props.deleteNeighb(this.state.key);
+  }
+
+  chooseNeighbForEdit(e) {
+    this.props.editNeighb(this.state.key, this.textInput.value);
+    e.preventDefault();
+  }
+
+  renderNeighbEdit(neighb) {
+    return (
+      <div>
+        <form onSubmit={(e) => {this.chooseNeighbForEdit(e)}}>
+          <input
+            defaultValue={neighb}
+            ref={(input) => { this.textInput = input; }}
+            onFocus={() => {
+            this.textInput.select();
+            }}
+          >
+          </input>
+          <button type='submit'>+</button>
+        </form>
+        <button onClick={this.chooseNeighbForDelete}>x</button>
+      </div>
+      );
+  }
+
     render() {
+        let neighborhood;
+        if (this.state.editing) {
+          neighborhood = this.renderNeighbEdit(this.state.selectedNeighb.name);
+        }
+        else {
+          neighborhood = this.renderNeighborhood();
+        }
         let displayed;
         if (this.state.displaying) {
           displayed = this.retrieveDests();
         }
         return (
           <div>
-            <div onClick={this.renderDests}>{this.props.details}</div>
+            {neighborhood}
             {displayed}
+
           </div>
         );
     }

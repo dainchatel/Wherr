@@ -23,6 +23,8 @@ class Neighborhoods extends Component {
               key={key}
               details={key}
               neighborhoods={this.props.neighborhoods}
+              deleteNeighb={this.props.deleteNeighb}
+              editNeighb={this.props.editNeighb}
             />
         ));
       }

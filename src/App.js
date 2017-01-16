@@ -18,6 +18,8 @@ class App extends Component {
     this.addDestination = this.addDestination.bind(this);
     this.addDestToList = this.addDestToList.bind(this);
     this.createNeighb = this.createNeighb.bind(this);
+    this.deleteNeighb = this.deleteNeighb.bind(this);
+    this.editNeighb = this.editNeighb.bind(this);
   }
 
   componentDidMount() {
@@ -67,6 +69,20 @@ class App extends Component {
       });
   }
 
+  deleteNeighb(neighbKey) {
+    axios.delete('https://wego-df1c5.firebaseio.com/'+neighbKey+'.json')
+      .then((res) => {
+        this.getTheNeighbs();
+      })
+  }
+
+  editNeighb(neighbKey, newName) {
+    axios.put('https://wego-df1c5.firebaseio.com/'+neighbKey+'.json', {name: newName})
+      .then((res) => {
+        this.getTheNeighbs();
+      })
+  }
+
   render() {
     return (
       <BrowserRouter>
@@ -75,7 +91,7 @@ class App extends Component {
           <div className="main">
             <Match exactly pattern="/" component={() => <Home addDestination={this.addDestination} />}
             />
-            <Match exactly pattern="/neighborhoods" component={() => <Neighborhoods createNeighb={this.createNeighb} neighborhoods={this.state.neighborhoods}/>}
+            <Match exactly pattern="/neighborhoods" component={() => <Neighborhoods editNeighb={this.editNeighb} deleteNeighb={this.deleteNeighb} createNeighb={this.createNeighb} neighborhoods={this.state.neighborhoods}/>}
             />
             <Match exactly pattern="/contact" component={Contact} />
             <Match exactly pattern="/editentry" component={() => <EditEntry addDestToList={this.addDestToList} currentDest={this.state.currentDest} neighborhoods={this.state.neighborhoods}/>}
