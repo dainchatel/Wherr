@@ -1,18 +1,25 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 
 class Neighb extends Component {
     constructor() {
       super();
+
       this.renderDests = this.renderDests.bind(this);
       this.editNeighb = this.editNeighb.bind(this);
       this.renderNeighbedit = this.renderNeighbEdit.bind(this);
       this.chooseNeighbForDelete = this.chooseNeighbForDelete.bind(this);
       this.chooseNeighbForEdit = this.chooseNeighbForEdit.bind(this);
+      this.selectDest = this.selectDest.bind(this);
+
+
       this.state = {
         displaying: false,
         selectedNeighb: {},
         key: '',
         editing: false,
+        index: '',
+        buttonDisplay: false
       }
     }
 
@@ -27,14 +34,32 @@ class Neighb extends Component {
       this.setState({key: neighbKey});
     }
 
+    selectDest(dest, key, neighb) {
+      this.props.displayDest(dest, key, neighb);
+    }
+
     retrieveDests() {
       let thisNeighb = this.state.selectedNeighb;
       return (
+
+
       Object.keys(thisNeighb).map(key => {
         if (thisNeighb[key] !== this.state.selectedNeighb.name) {
-          return( <div key={key} className='neighb-dests'>{thisNeighb[key].name}</div>);
+          return(
+            <div key={key}>
+            <Link
+
+            to={`/dest/${thisNeighb[key].name}`}
+            onClick={(e) => {this.selectDest(thisNeighb[key], key, this.state.key)}}
+            activeOnlyWhenExact
+
+            key={key}
+            className='neighb-dests'
+            >{thisNeighb[key].name}</Link></div>
+            );
         }
       })
+
     );
     }
 
@@ -52,9 +77,39 @@ class Neighb extends Component {
     this.setState({editing: true});
   }
 
+  // addDestFromNeighb() {
+
+  //     this.setState({buttonDisplay: true})
+
+  // }
+
+  // takeAwayButton() {
+  //   setTimeout(() => { this.setState({buttonDisplay: false}); }, 2500);
+  // }
+
+  // taketoAddEntry(e) {
+  //   e.preventDefault();
+  //   // this.context.router.transitionTo('/editentry');
+  //   console.log('hi')
+
+  // }
+
+
+
   renderNeighborhood() {
+
     return (
-    <div onClick={this.renderDests} onDoubleClick={this.editNeighb} >{this.props.details}</div>
+      <div>
+
+      <div>
+    <div className="whole-thing"
+    onClick={this.renderDests}
+    onDoubleClick={this.editNeighb}
+
+    >{this.props.details}</div>
+
+    </div>
+    </div>
     );
   }
 
@@ -65,25 +120,37 @@ class Neighb extends Component {
   chooseNeighbForEdit(e) {
     this.props.editNeighb(this.state.key, this.textInput.value);
     e.preventDefault();
+
   }
 
   renderNeighbEdit(neighb) {
     return (
-      <div>
+      <div className='neighb-edit-forms'>
         <form onSubmit={(e) => {this.chooseNeighbForEdit(e)}}>
           <input
-            defaultValue={neighb}
-            ref={(input) => { this.textInput = input; }}
+
+            ref={(input) =>  { this.textInput = input; } }
             onFocus={() => {
             this.textInput.select();
             }}
+            // autoFocus
+            defaultValue={neighb}
           >
           </input>
-          <button type='submit'>+</button>
+          <button className='neighb-edit-button' type='submit'>+</button>
         </form>
-        <button onClick={this.chooseNeighbForDelete}>x</button>
+        <form>
+        <button className='delete-neighb-butt' onClick={this.chooseNeighbForDelete}><i className="icon-trash"></i></button>
+        </form>
       </div>
       );
+  }
+
+  setNeighbEdit(e) {
+    this.props.setNeighbEdit(this.state.selectedNeighb.name);
+    this.context.router.transitionTo('/editentry');
+
+
   }
 
     render() {
@@ -98,15 +165,30 @@ class Neighb extends Component {
         if (this.state.displaying) {
           displayed = this.retrieveDests();
         }
+        let addButton;
+        if (this.state.displaying) {
+          addButton = <button
+                  onClick={(e) => {this.setNeighbEdit(e)}}
+
+
+                >+</button>
+        }
         return (
           <div>
+            <div className='neighb-with-button'>
             {neighborhood}
+            {addButton}
+            </div>
             {displayed}
 
           </div>
         );
     }
   }
+
+  Neighb.contextTypes = {
+  router: React.PropTypes.object
+}
 
 
 export default Neighb;

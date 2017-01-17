@@ -20,11 +20,14 @@ class Neighborhoods extends Component {
         const alphaList = neighbList.sort();
         return (alphaList.map(key =>
             <Neighb
+              className='neighb-from-list'
               key={key}
               details={key}
               neighborhoods={this.props.neighborhoods}
               deleteNeighb={this.props.deleteNeighb}
               editNeighb={this.props.editNeighb}
+              displayDest={this.props.displayDest}
+              setNeighbEdit={this.props.setNeighbEdit}
             />
         ));
       }
@@ -44,7 +47,7 @@ class Neighborhoods extends Component {
                 this.neighb = input;
                 }
             }></input>
-            <button>+ Neighborhood</button>
+            <button>+</button>
           </form>
         </div>
       );

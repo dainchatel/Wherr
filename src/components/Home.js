@@ -18,11 +18,11 @@ class Home extends Component {
       <div>
         <div className='head-wrap'>
           <h1>Here</h1>
-          <h2>what's good around here?</h2>
+          <h2></h2>
         </div>
         <form className='home-form' onSubmit={(e) => {this.createDestination(e)}}>
           <input
-            placeholder='Add a destination...'
+            placeholder="What's good around here?"
             onKeyPress={this.enterDestination}
             ref={(input) => {
                 this.content = input;

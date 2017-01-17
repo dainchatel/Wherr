@@ -29,16 +29,10 @@ h1 {
   font-size: 4em;
   letter-spacing: -.15em;
   padding-right: .15em; /* accounts for push off-center caused by letter spacing */
-  margin: 0;
+  margin: 0 0 10vh 0;
 }
 
-h2 {
-  font-family: 'Montserrat';
-  font-weight: 400;
-  color: rgba(60, 60, 60, .2);
-  font-size: 1em;
-  margin: 0;
-}
+
 
 .main {
   font-family: 'Montserrat';
@@ -79,8 +73,85 @@ h2 {
 }
 
 .neighb-dests {
-  font-size: 1.5em;
-  margin-left: 7vw;
+  font-size: .75em;
+  text-decoration: none;
+  color: rgba(13, 121, 255, 1);
+  text-transform: lowercase;
+  margin-left: 2vw;
+}
+
+.neighb-dests:hover {
+  color: rgba(60, 60, 60, .2);
+  text-decoration: none;
+}
+
+button {
+  color: white;
+  background-color: rgba(13, 121, 255, 1);
+  font-size: 3vh;
+  border: none;
+  width: 4vw;
+  height: 8vh;
+  outline: none;
+  font-weight: 700;
+  margin-left: 1vw;
+}
+
+input {
+  height: 8vh;
+  border: none;
+  border-bottom: 1px solid rgba(60, 60, 60, .2);
+  margin: 0 2vw;
+  outline: none;
+  font-family: 'Montserrat';
+  color: rgba(60, 60, 60, .2);
+  text-transform: uppercase;
+}
+
+input:placeholder {
+  color: rgba(60, 60, 60, .2);
+}
+
+
+
+.neighb-edit-forms {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-around;
+  margin: 4vh 2vw;
+
+
+}
+
+.delete-neighb-butt {
+  background-color: white;
+
+}
+
+.whole-thing{
+  margin: 3vh 0;
+  font-weight: 400;
+  color: rgba(60, 60, 60, .2);
+}
+
+.neighb-with-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.icon-trash {
+    color: rgba(13, 121, 255, 1);
+    font-size: 5vh;
+
+}
+
+.neighb-edit-button {
+  background-color: white;
+  color: rgba(13, 121, 255, 1);
+  font-size: 5vh;
 }
 
 
