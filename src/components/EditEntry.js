@@ -57,7 +57,7 @@ class EditEntry extends Component {
                 this.neighb = input;
                 }
             }></input>
-            <button>+ Neighborhood</button>
+            <button>+</button>
           </form>
       }
         return (
@@ -65,7 +65,7 @@ class EditEntry extends Component {
             <p className='edit-head'>I love that place!</p>
               {neighbAdd}
               <form className='edit-entry-form' onSubmit={(e) => {this.confirmDestination(e)}}>
-                <div>
+                <div className='edit-entry-entry'>
                   <label>Name</label>
                   <input
                   defaultValue={this.props.currentDest}
@@ -75,8 +75,8 @@ class EditEntry extends Component {
                   }>
                   </input>
                 </div>
-                <div>
-                  <label>Neighborhood</label>
+                <div className='edit-entry-entry' className='the-select-div'>
+                  <label className='select-label'>Neighborhood</label>
                   <select
                   onChange={() => {this.addNeighbFromSelect()}}
                   defaultValue={this.props.currentNeighb}
@@ -91,8 +91,8 @@ class EditEntry extends Component {
                   </select>
 
                 </div>
-                <div>
-                  <label>Cross Street A</label>
+                <div className='edit-entry-entry'>
+                  <label>East-West Street</label>
                   <input
                     ref={(input) => {
                       this.crossOne = input;
@@ -100,8 +100,8 @@ class EditEntry extends Component {
                   }>
                   </input>
                 </div>
-                <div>
-                  <label>Cross Street B</label>
+                <div className='edit-entry-entry'>
+                  <label>North-South Street</label>
                   <input
                     ref={(input) => {
                       this.crossTwo = input;
@@ -109,7 +109,7 @@ class EditEntry extends Component {
                   }>
                   </input>
                 </div>
-                <div>
+                <div className='edit-entry-entry'>
                   <label>Description</label>
                   <input
                     ref={(input) => {
@@ -117,7 +117,7 @@ class EditEntry extends Component {
                     }}>
                   </input>
                 </div>
-                <button>Save</button>
+                <button>+</button>
                 </form>
 
             </div>

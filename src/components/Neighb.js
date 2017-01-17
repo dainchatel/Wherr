@@ -97,7 +97,6 @@ class Neighb extends Component {
 
 
   renderNeighborhood() {
-
     return (
       <div>
 
@@ -124,6 +123,8 @@ class Neighb extends Component {
   }
 
   renderNeighbEdit(neighb) {
+        this.setState({displaying: false})
+
     return (
       <div className='neighb-edit-forms'>
         <form onSubmit={(e) => {this.chooseNeighbForEdit(e)}}>
@@ -167,7 +168,7 @@ class Neighb extends Component {
         }
         let addButton;
         if (this.state.displaying) {
-          addButton = <button
+          addButton = <button className='add-from-neighb'
                   onClick={(e) => {this.setNeighbEdit(e)}}
 
 
@@ -179,8 +180,9 @@ class Neighb extends Component {
             {neighborhood}
             {addButton}
             </div>
+            <div className='the-dests'>
             {displayed}
-
+            </div>
           </div>
         );
     }

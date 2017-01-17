@@ -29,7 +29,14 @@ h1 {
   font-size: 4em;
   letter-spacing: -.15em;
   padding-right: .15em; /* accounts for push off-center caused by letter spacing */
-  margin: 0 0 10vh 0;
+  margin: 10vh 0 7vh 0;
+}
+
+h2 {
+  font-family: 'Montserrat';
+  font-weight: 400;
+  color: rgba(60, 60, 60, .2);
+
 }
 
 
@@ -69,7 +76,26 @@ h1 {
 
 .main-contact {
   display: flex;
-  justify-content: flex-end;
+  flex-direction: column;
+  align-items: center;
+  color: rgba(60, 60, 60, .2);
+  height: 30vh;
+}
+
+.icon-github {
+  color: black;
+  margin: 0 3vw;
+  font-size: 7vh;
+}
+
+.icon-twitter {
+  color: rgba(29, 161, 242, 1);
+  margin: 0 3vw;
+  font-size: 7vh;
+}
+
+.contact-unit {
+  margin: 1.5vh 0;
 }
 
 .neighb-dests {
@@ -86,9 +112,9 @@ h1 {
 }
 
 button {
-  color: white;
-  background-color: rgba(13, 121, 255, 1);
-  font-size: 3vh;
+  background-color: white;
+  color: rgba(13, 121, 255, 1);
+  font-size: 7vh;
   border: none;
   width: 4vw;
   height: 8vh;
@@ -98,18 +124,20 @@ button {
 }
 
 input {
-  height: 8vh;
+
   border: none;
   border-bottom: 1px solid rgba(60, 60, 60, .2);
   margin: 0 2vw;
   outline: none;
   font-family: 'Montserrat';
   color: rgba(60, 60, 60, .2);
-  text-transform: uppercase;
+  font-size: 5vh;
+
 }
 
-input:placeholder {
+input::placeholder {
   color: rgba(60, 60, 60, .2);
+  text-transform: lowercase;
 }
 
 
@@ -119,18 +147,20 @@ input:placeholder {
   flex-direction: row;
   align-items: flex-end;
   justify-content: space-around;
-  margin: 4vh 2vw;
+  margin: 2vh 0;
 
 
 }
 
 .delete-neighb-butt {
   background-color: white;
+  margin-bottom: -.8vh;
+  margin-left: 1vw;
 
 }
 
 .whole-thing{
-  margin: 3vh 0;
+  margin: 1.1vh 0;
   font-weight: 400;
   color: rgba(60, 60, 60, .2);
 }
@@ -142,6 +172,11 @@ input:placeholder {
   align-items: center;
 }
 
+.add-from-neighb {
+  margin: 0 0 0 1vw;
+  font-size: 5vh;
+}
+
 .icon-trash {
     color: rgba(13, 121, 255, 1);
     font-size: 5vh;
@@ -151,10 +186,37 @@ input:placeholder {
 .neighb-edit-button {
   background-color: white;
   color: rgba(13, 121, 255, 1);
-  font-size: 5vh;
+
 }
 
+.neighborhood-add {
+  margin-top: 4vh;
+  margin-left: 0;
+}
 
+.edit-entry-entry {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  margin: 2vh 0;
+}
 
+.the-select-div {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  margin: 2vh 0 3vh 0;
+}
 
+select {
+  margin: 2vh 0 -3vh 2vw;
+}
+
+.select-label {
+  margin-bottom: -2vh;
+}
+
+a:hover {
+  text-decoration: none;
+}
 
