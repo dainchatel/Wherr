@@ -198,12 +198,12 @@ input::placeholder {
   display: flex;
   flex-direction: row;
   align-items: flex-end;
-  margin-left: -15px;
+  margin-left: -30px;
 
 }
 
 .dest-edit-button {
-  width: 12vw;
+  width: 8vw;
   font-size: 5vh;
 }
 

@@ -116,8 +116,10 @@ class Neighb extends Component {
 
   //edit and delete neighborhoods, RIGHT FROM THE PAGE!
 
-  chooseNeighbForDelete() {
-    this.props.deleteNeighb(this.state.key);
+  chooseNeighbForDelete(e) {
+    let neighbKey = this.state.key;
+    this.props.deleteNeighb(neighbKey);
+    e.preventDefault();
   }
 
   chooseNeighbForEdit(e) {
@@ -143,8 +145,8 @@ class Neighb extends Component {
           </input>
           <button className='neighb-edit-button' type='submit'>+</button>
         </form>
-        <form>
-        <button className='delete-neighb-butt' onClick={this.chooseNeighbForDelete}><i className="icon-trash"></i></button>
+        <form onSubmit={(e) => {this.chooseNeighbForDelete(e)}}>
+        <button className='delete-neighb-butt'><i className="icon-trash"></i></button>
         </form>
       </div>
     );

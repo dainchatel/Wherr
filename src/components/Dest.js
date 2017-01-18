@@ -15,6 +15,7 @@ class Dest extends Component {
   eraseDest(e) {
     e.preventDefault();
     this.props.deleteDest(this.props.theKey);
+    this.context.router.transitionTo('/neighborhoods');
   }
 
   //set editing state so edit fields can display istead of current details, state

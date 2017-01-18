@@ -77,10 +77,7 @@ class App extends Component {
   createNeighb(neighbName) {
     axios.post('https://wego-df1c5.firebaseio.com/.json', neighbName)
       .then((res) => {
-        let neighbs = this.state.neighborhoods;
-        let newNeighbId = res.data.name;
-        neighbs[newNeighbId] = neighbName;
-        this.setState({neighborhoods: neighbs})
+        this.getTheNeighbs();
       });
   }
 
@@ -88,7 +85,7 @@ class App extends Component {
     axios.delete('https://wego-df1c5.firebaseio.com/'+neighbKey+'.json')
       .then((res) => {
         this.getTheNeighbs();
-      });
+      })
   }
 
   editNeighb(neighbKey, newName) {
