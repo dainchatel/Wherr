@@ -6,6 +6,8 @@ class Home extends Component {
     this.createDestination = this.createDestination.bind(this);
   }
 
+  //takes input on home page and reroutes to edit entry page, where input is pre-populated in name form
+
   createDestination(e) {
     e.preventDefault();
     const newDest = this.content.value;
@@ -22,22 +24,18 @@ class Home extends Component {
         </div>
         <form className='home-form' onSubmit={(e) => {this.createDestination(e)}}>
           <input
-
             onKeyPress={this.enterDestination}
             ref={(input) => {
                 this.content = input;
                 }
             }
-          ></input>
+          >
+          </input>
           <button type='submit'>+</button>
         </form>
       </div>
-
-
     );
   }
-
-
 }
 
 Home.contextTypes = {

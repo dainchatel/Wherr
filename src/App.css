@@ -36,7 +36,8 @@ h2 {
   font-family: 'Montserrat';
   font-weight: 400;
   color: rgba(60, 60, 60, .2);
-
+  text-align: center;
+  font-size: 1em;
 }
 
 
@@ -65,6 +66,7 @@ h2 {
 }
 
 .edit-head {
+  margin-top: 5vh;
   color: rgba(13, 121, 255, 1);
 }
 
@@ -84,13 +86,13 @@ h2 {
 
 .icon-github {
   color: black;
-  margin: 0 3vw;
+  margin: 0 2vw;
   font-size: 7vh;
 }
 
 .icon-twitter {
   color: rgba(29, 161, 242, 1);
-  margin: 0 3vw;
+  margin: 0 2vw;
   font-size: 7vh;
 }
 
@@ -103,7 +105,11 @@ h2 {
   text-decoration: none;
   color: rgba(13, 121, 255, 1);
   text-transform: lowercase;
-  margin-left: 2vw;
+  margin: -1vh 0 2vh 2vw;
+}
+
+.neighb-dests-div {
+  margin: -1.5vh 0 1.5vh 2vw;
 }
 
 .neighb-dests:hover {
@@ -165,6 +171,11 @@ input::placeholder {
   color: rgba(60, 60, 60, .2);
 }
 
+.whole-thing:hover {
+  cursor: default;
+  font-family: 'Montserrat';
+}
+
 .neighb-with-button {
   display: flex;
   flex-direction: row;
@@ -177,6 +188,33 @@ input::placeholder {
   font-size: 5vh;
 }
 
+.icon-edit {
+  color: rgba(13, 121, 255, 1);
+  font-size: 4vh;
+  margin: 1.5vh 0 0 15px;
+}
+
+.dest-edit-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  margin-left: -15px;
+
+}
+
+.dest-edit-button {
+  width: 12vw;
+  font-size: 5vh;
+}
+
+
+.neighb-add-and-edit {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 1vh;
+}
+
 .icon-trash {
     color: rgba(13, 121, 255, 1);
     font-size: 5vh;
@@ -186,12 +224,24 @@ input::placeholder {
 .neighb-edit-button {
   background-color: white;
   color: rgba(13, 121, 255, 1);
+  margin-right: 4vw;
 
 }
 
 .neighborhood-add {
   margin-top: 4vh;
   margin-left: 0;
+}
+
+.edit-entry-short {
+  width: 45vw;
+}
+
+.edit-entry-button {
+  padding: 0;
+  margin: 2vh 0;
+  text-align: center;
+  width: 10vw;
 }
 
 .edit-entry-entry {
@@ -209,7 +259,12 @@ input::placeholder {
 }
 
 select {
-  margin: 2vh 0 -3vh 2vw;
+  margin: 2vh 0 1vh 2vw;
+  outline: none;
+}
+
+label {
+  text-align: center;
 }
 
 .select-label {
@@ -219,4 +274,91 @@ select {
 a:hover {
   text-decoration: none;
 }
+
+.dest-return {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-transform: lowercase;
+}
+
+.dest-unit {
+  margin: 2.5vh 0;
+}
+
+.dest-name {
+  color: rgba(13, 121, 255, 1);
+  font-size: 10vh;
+  margin-bottom: 3vh;
+  margin-top: 10vh;
+  text-align: center;
+  line-height: 7vh;
+}
+
+.dest-desc {
+  text-align: center;
+  font-size: 3vh;
+  width: 40vw;
+  margin: 2vh 0 4vh 0;
+}
+
+
+
+.dest-edit-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+
+}
+
+.dest-edit-unit {
+  text-align: center;
+  font-size: 3vh;
+}
+
+.dest-edit-street {
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+  font-size: 3vh;
+  text-align: center;
+  width: 20vw;
+}
+
+.dest-edit-street-2 {
+  margin-top: 1vh;
+  margin-bottom: 6vh;
+  font-size: 3vh;
+  text-align: center;
+  width: 20vw;
+}
+
+.dest-edit-name {
+  font-size: 4vh;
+  text-align: center;
+  margin-bottom: 2vh;
+}
+
+
+.dest-edit-desc {
+  font-size: 2.5vh;
+  width: 70vw;
+  text-align: center;
+  margin-bottom: 4vh;
+
+
+
+}
+
+.dest-edit-button-div {
+  display: flex;
+  justify-content: center;
+}
+
+.dest-edit-button {
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+
 
