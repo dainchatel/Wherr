@@ -13,6 +13,10 @@
 - Bootstrap
 - Flexbox
 
+## Wireframe
+
+![Wireframe](wireframe.jpg)
+
 ## Code Example
 
 ```javascript
