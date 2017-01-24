@@ -198,12 +198,12 @@ input::placeholder {
   display: flex;
   flex-direction: row;
   align-items: flex-end;
-  margin-left: -30px;
+  margin-left: -5vw;
 
 }
 
 .dest-edit-button {
-  width: 8vw;
+  width: 12vw;
   font-size: 5vh;
 }
 
@@ -292,7 +292,7 @@ a:hover {
   margin-bottom: 3vh;
   margin-top: 10vh;
   text-align: center;
-  line-height: 7vh;
+  line-height: 10vh;
 }
 
 .dest-desc {
